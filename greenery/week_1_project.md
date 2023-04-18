@@ -2,8 +2,10 @@
 #### How many users do we have?
 130 users
 
+```
 SELECT COUNT(DISTINCT user_guid) AS total_users
 FROM dev_db.dbt_isabelalemoslivecom.stg_postgres__users;
+```
 
 
 #### On average, how many orders do we receive per hour?
