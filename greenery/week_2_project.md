@@ -52,6 +52,12 @@ If more data is available, many other analysis could eventually be performed. As
 - user's profile: age, demographic information, device, persona analysis to define returning customers
 
 
+#### Explain the product mart models you added. Why did you organize the models in the way you did?
+
+
+## Part 2. Tests
+
+#### ?
 
 
 
