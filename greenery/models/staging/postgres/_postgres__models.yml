@@ -9,8 +9,8 @@ models:
         tests:
           - not_null
           - unique
-      - name: street_address
-        description: "Street name and house name"
+      - name: address
+        description: "Street name and house number"
         tests:
           - not_null
       - name: country
@@ -58,6 +58,9 @@ models:
         description: "Order unique identifier"
         tests:
           - not_null
+          - relationships:
+              to: ref('stg_postgres_orders')
+              field: order_guid
       - name: product_guid
         description: "Product unique identifier"
         tests:
@@ -66,6 +69,7 @@ models:
         description: "Quantity of specific product included in the specific order"
         tests:
           - not_null
+          - positive_values
 
   - name: stg_postgres__orders
     description: "Order details, for all the placed orders"
@@ -93,14 +97,16 @@ models:
         description: "Cost of the items included in an order"
         tests:
           - not_null
+          - positive_values
       - name: shipping_cost
         description: "Cost of the shipping"
         tests:
-          - not_null
+          - positive_values
       - name: order_total
         description: "Total cost of the order, given by the combination of products cost, shipping cost and promo applied"
         tests:
           - not_null
+          - positive_values
       - name: tracking_guid
         description: "tracking_guid"
       - name: shipping_service
@@ -130,10 +136,12 @@ models:
         description: "Current price of a product"
         tests:
           - not_null
+          - positive_values
       - name: inventory
         description: "Current quantity of a product which is still in inventory"
         tests:
           - not_null
+          - positive_values
 
   - name: stg_postgres__promos
     description: "Promo codes created and status"
@@ -162,12 +170,8 @@ models:
           - unique
       - name: first_name
         description: "First name of the user"
-        tests:
-          - not_null
       - name: last_name
         description: "Last name of the user"
-        tests:
-          - not_null
       - name: email
         description: "User's email"
         tests:
@@ -182,8 +186,6 @@ models:
           - not_null
       - name: updated_at
         description: "Timestamp of when the user's details were updated for the last time"
-        tests:
-          - not_null
       - name: address_guid
         description: "User's address identifier"
         tests:

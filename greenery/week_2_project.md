@@ -53,7 +53,13 @@ If more data is available, many other analysis could eventually be performed. As
 
 
 #### Explain the product mart models you added. Why did you organize the models in the way you did?
+For all the models I've created, I first idealised how I would like to have the final marts model to reply the questions from the business. In Core, the marts model are still very basic, thus no intermeadiate models were needed. For product, some level of aggregation was needed for reporting the metrics, and also making combinations (joins) of data living in different tables, thus the need of intermediate models.
 
+The final fact table (fact_product_conversion) aims to report the conversion per product on a daily basis. Daily based report are usually granular enough for most questions from the business, specially when they can be easily rolled up to less granular levels, such as week or month. 
+
+To achieve that, 3 information types were needed: count of events, count of orders with each product, product details (just so it could be reported with the product name, which is usually more meaninful than a GUID). The last one could be obtained directly from product model available in staging layer, while the other 2 still needed some tweaks and aggregations to be presented in the way they were needed, therefore they were created in intermediate layer. The events required only reorganising a table from staging, while the orders per product actually required information from 2 staging tables, so also a join was needed in this model.
+
+So overall, marts model point to: staging models, if in correct level, and intermediate models, if data transformations were needed for the required level. Joins are included in this model, as it is a more complex model. Intermediante models point to staging models, but also joins might be included in needed.
 
 ## Part 2. Tests
 

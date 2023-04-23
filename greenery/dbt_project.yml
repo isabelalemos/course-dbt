@@ -38,5 +38,5 @@ models:
       +materialized: table
     marts:
       +materialized: table
-    example:
-      +materialized: view
+    # example:
+    #   +materialized: view

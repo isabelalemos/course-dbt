@@ -6,8 +6,12 @@ models:
     columns:
       - name: reference_date
         description: "Date in which events took place"
+        tests:
+          - not_null
       - name: product_guid
         description: "Product identifier"
+        tests:
+          - not_null
       - name: total_pageviews
         description: "Total count of times a product had a pageview on a specific date"
       - name: total_add_to_cart
@@ -26,7 +30,11 @@ models:
     columns:
       - name: reference_date
         description: "Date in which orders were placed"
+        tests:
+          - not_null
       - name: product_guid
         description: "Product identifier"
+        tests:
+          - not_null
       - name: total_orders_with_product
         description: "Total count of orders which included a specific product"

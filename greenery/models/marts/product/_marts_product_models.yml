@@ -6,8 +6,12 @@ models:
     columns:
       - name: reference_date
         description: "Date for when conversion is being reported"
+        tests:
+          - not_null
       - name: product_guid
         description: "Unique product identifier for which conversion is being reported"
+        tests:
+          - not_null
       - name: product_name
         description: "Name of the product"
       - name: total_pageviews
