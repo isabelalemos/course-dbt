@@ -59,12 +59,15 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('stg_postgres_orders')
+              to: ref('stg_postgres__orders')
               field: order_guid
       - name: product_guid
         description: "Product unique identifier"
         tests:
           - not_null
+          - relationships:
+              to: ref('stg_postgres__products')
+              field: product_guid
       - name: quantity
         description: "Quantity of specific product included in the specific order"
         tests:
@@ -83,12 +86,22 @@ models:
         description: "Identifier of the user who create an order"
         tests:
           - not_null
+          - relationships:
+              to: ref('stg_postgres__users')
+              field: user_guid
       - name: promo_type
         description: "Promo code applied in the order, if any"
+        tests:
+          - relationships:
+              to: ref('stg_postgres__promos')
+              field: promo_type
       - name: address_guid
         description: "User address identifier"
         tests:
           - not_null
+          - relationships:
+              to: ref('stg_postgres__addresses')
+              field: address_guid
       - name: created_at
         description: "Timestamp of when the order was created"
         tests:

@@ -82,5 +82,7 @@ models:
         description: "True if the delivery time was later than the estimated delivery time; null if not delivered or if dates not available for comparison"
       - name: state
         description: "State where the order was shipped to"
+        tests:
+          - not_null
       - name: total_items
         description: "Total count of items included the order"

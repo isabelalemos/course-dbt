@@ -63,9 +63,18 @@ So overall, marts model point to: staging models, if in correct level, and inter
 
 ## Part 2. Tests
 
-#### ?
+#### What assumptions are you making about each model? (i.e. why are you adding each test?)
+I mostly applied tests on the staging layer, as in validating data quality (and not calculations/modeling, as the models are mostly simple so far). On a real life scenario, I would apply more tests in marts models to make sure the conditions I am cleaning data through SQL are all being met.
 
+Mostly, I am validating primary keys (unique), fields that are not null, fields that have to be positive, relationships (all these generic tests), and also created a singular test comparing delivery date as later than created date. I did not apply those to ALL fields, as essentially I am not requiring all source data to be perfect at the moment. E.g. I don't mind that not all addresses are not filled in the 'stg_postgrees__address' model as long as the addresses are filled in for addresses connected to the orders.
 
+#### Did you find any “bad” data as you added and ran tests on your models? How did you go about either cleaning the data in the dbt model or adjusting your assumptions/tests?
+I got one error in a test, but as a SQL compilation error which I was not able to figure out why (it does not point to any column in particular, but to the test itself, even though the test had been applied to many other columns).
+
+Besides that, I got no further errors - the tests created in marts worked well with the filtering/assumptions I have done during modelling.
+
+#### Your stakeholders at Greenery want to understand the state of the data each day. Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.
+I would schedule all the tests to run in a DAG right after dbt run, so all the data could be validated as soon as the models are refreshed. In case any tests fail, this could trigger an alert just so someone can manually investigate it and identify the root cause and if/how it can be fixed.
 
 ## Part 3. dbt snapshots
 4 products changed quantities: Philodendron, Pothos, String of pearls and Monstera
