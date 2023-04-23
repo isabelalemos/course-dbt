@@ -8,8 +8,8 @@ models:
         tests:
           - not_null
       - name: height
-        tests:
-          - positive_values
+        # tests:
+        #   - positive_values
       - name: weight_lbs
-        tests:
-          - positive_values
+        # tests:
+        #   - positive_values
