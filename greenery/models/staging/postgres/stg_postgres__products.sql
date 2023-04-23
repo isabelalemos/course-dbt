@@ -6,7 +6,7 @@ WITH source AS (
 , renamed_recast AS (
     SELECT
         product_id AS product_guid
-        , name
+        , name AS product_name
         , price
         , CAST(inventory AS INT) AS inventory
     FROM source

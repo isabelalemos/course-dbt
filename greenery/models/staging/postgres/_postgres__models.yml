@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_postgres__addresses
-    description: Details of addresses based on `address_guid` per user
+    description: "Details of addresses based on `address_guid` per user"
     columns:
       - name: address_guid
         description: "Unique identifier per address"
@@ -122,7 +122,7 @@ models:
         tests:
           - not_null
           - unique
-      - name: name
+      - name: product_name
         description: "Product name"
         tests:
           - not_null

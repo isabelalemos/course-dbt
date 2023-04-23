@@ -26,8 +26,8 @@ FROM users_per_number_of_orders
 
 #### What are good indicators of a user who will likely purchase again? What about indicators of users who are likely NOT to purchase again? If you had more data, what features would you want to look into to answer this question?
 
-Overall tren for repeat rate:
-- how long does a user usually takes to place the next orders? This is important to understand the expected interval between purchases for users that just recently placed an order
+Overall trend for repeat rate:
+- how long does a user usually takes to place the next orders? This is important to understand the expected interval between purchases for users that just recently placed an order, allows differentiation between a user that is likely to still be active x churned ones
 
 Experience after purchase:
 - influence of delivery times
@@ -42,7 +42,26 @@ Amount spent and order details:
 Behaviour before order:
 - influence of events done by a user (are users more/less indecisive, adding multiple items to the cart, most likely to return?)
 
-If more data is available, many other analysis could eventually be performed. As examples:
-- user's age
+User's attributes:
+- demographics information
+
+If more data is available, many other analysis could eventually be performed. As examples in each one of the buckets above mentioned:
+- experience after purchase: NPS/product feedback, contact rate (if customer reached out to support)
+- order details: products or type of items that are most likely to be ordered regularly
+- before order: customer segment, marketing campaign, time through funnel since first website visit to conversion
+- user's profile: age, demographic information, device, persona analysis to define returning customers
 
 
+
+
+
+## Part 3. dbt snapshots
+4 products changed quantities: Philodendron, Pothos, String of pearls and Monstera
+
+```
+SELECT *
+, LEAD(inventory) OVER (PARTITION BY product_id ORDER  BY dbt_updated_at) AS new_inventory
+FROM dev_db.dbt_isabelalemoslivecom.inventory_snapshot
+QUALIFY dbt_valid_to IS NOT NULL
+;
+```
