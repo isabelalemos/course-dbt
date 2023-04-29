@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: int_daily_events_website
+    description: "Daily aggregate of events per product GUID"
+    columns:
+      - name: reference_date
+        description: "Date in which events took place"
+        tests:
+          - not_null
+      - name: total_pageviews
+        description: "Total count of times a product had a pageview on a specific date"
+      - name: total_add_to_cart
+        description: "Total count of times a product was added to cart on a specific date"
+      - name: total_sessions_with_pageviews
+        description: "Total count of sessions in which a product had a pageview on a specific date"
+      - name: total_sessions_with_add_to_cart
+        description: "Total count of sessions in which a product was added to cart on a specific date"
+      - name: total_sessions_with_checkout
+        description: "Total count of sessions in which a checkout happened"
+      - name: total_users_with_pageviews
+        description: "Total count of users who had a product pageview on a specific date"
+      - name: total_users_with_pageviews
+        description: "Total count of users who had a product added to cart on a specific date"
