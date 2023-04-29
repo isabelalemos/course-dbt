@@ -16,7 +16,7 @@ models:
       - name: total_add_to_carts
         description: ""
 
-      - name: total_chekouts
+      - name: total_checkouts
         description: ""
 
       - name: total_package_shippeds
@@ -27,3 +27,6 @@ models:
 
       - name: last_session_event_at
         description: ""
+
+      - name: order_gui
+        description: "Order ID generated in the session"
