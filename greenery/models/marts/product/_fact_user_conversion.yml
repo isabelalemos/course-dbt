@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: fact_user_conversion
+    description: ""
+    columns:
+      - name: user_guid
+        description: ""
+
+      - name: user_name
+        description: ""
+
+      - name: user_email
+        description: ""
+
+      - name: session_guid
+        description: ""
+
+      - name: session_started_at
+        description: ""
+
+      - name: total_page_views
+        description: ""
+
+      - name: total_add_to_carts
+        description: ""
+
+      - name: total_checkouts
+        description: ""
+
+      - name: total_package_shippeds
+        description: ""
+
+      - name: order_guid
+        description: ""

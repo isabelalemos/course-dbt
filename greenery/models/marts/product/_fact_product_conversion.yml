@@ -16,6 +16,8 @@ models:
         description: "Name of the product"
       - name: total_pageviews
         description: "Total count of times a product had a pageview on a specific date"
+      - name: total_sessions_with_pageviews
+        description: "Total count of sessions in which the product was included on a specific date"
       - name: total_add_to_cart
         description: "Total count of times a product was added to cart on a specific date"
       - name: total_orders_with_product
@@ -26,3 +28,5 @@ models:
         description: "Daily cart to order step conversion of the product"
       - name: conversion_pageview_to_order
         description: "Daily pageview to order step conversion of the product"
+      - name: conversion_session_to_order
+        description: "Daily sessions with pageview of a product to order step conversion of the product"
