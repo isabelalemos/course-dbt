@@ -51,6 +51,13 @@ FROM dev_db.dbt_isabelalemoslivecom.fact_product_conversion
 GROUP BY 1
 ```
 
+#### Why might certain products be converting at higher/lower rates than others?
+Without exploring the available data or thinking exactly at which data we have, here are some hypothesis:
+- price and seasonal discounts/offers
+- marketing campaigns, products that work as "showcase" bringing customers to website and not really converting and other way around
+- popularity, market trends, seasonal events/periods
+- product related reasons (information level in website page, AB tests, etc)
+
 ## Part 5. DAG improvements
 
 
@@ -73,6 +80,3 @@ name
 FROM dev_db.dbt_isabelalemoslivecom.inventory_snapshot
 QUALIFY DATE(dbt_valid_to) = DATE('2023-04-29') -- latest snapshot date
 ``` 
-
-
-

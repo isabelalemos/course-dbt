@@ -1,0 +1,6 @@
+version: 2
+
+macros:
+
+  - name: count_events_per_type
+    description: 'Macro to be used with events table that aggregates by counting number of events per event type'

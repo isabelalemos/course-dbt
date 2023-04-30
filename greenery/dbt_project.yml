@@ -40,3 +40,6 @@ models:
       +materialized: table
     # example:
     #   +materialized: view
+
+    +post-hook:
+        - "{{ grant(role='reporting') }}"
