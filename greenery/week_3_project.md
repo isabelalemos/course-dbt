@@ -59,7 +59,9 @@ Without exploring the available data or thinking exactly at which data we have, 
 - product related reasons (information level in website page, AB tests, etc)
 
 ## Part 5. DAG improvements
-
+- Using dbt package dbt_utils, the macro input happens automatically collecting all possible values existing in a column, without the need of manually adding them
+- Using a macro for aggregating the event type, the same aggregation can be repeated multiple times. Another macro that does not only count the events, but instead the distinct values of session or user (in which this input can be passed as a macro argument) may also be very useful, as this aggregation is frequently needed in the models designed so far
+- Using a macro for role permission, I make sure all the tables and schema within the project have the access grant applied right after the queries run, without the need of setting it individually per model by using the post hook to trigger that macro
 
 ## Part 6. dbt snapshots
 #### Which products had their inventory change from week 2 to week 3?
