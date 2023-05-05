@@ -67,9 +67,3 @@ FROM dev_db.dbt_isabelalemoslivecom.fact_daily_funnel
 
 The biggest drop is between page view and add to cart (17% of sessions), followed by checkout (16% drop), indicating these are the steps where most optimizations could be implemented.
 
-## Part 3: Reflection questions -  dbt next steps for you 
-#### Reflecting on your learning in this class if your organization is using dbt, what are 1-2 things you might do differently / recommend to your organization based on learning from this course?
-
-Given the current setup at my organisation, where there is so much logic living in Looker, my first recommendation would be to decentralise dbt access and allow all other analysts to develop using dbt and get access to the intermediate/staging models. This might sound controversial, but in the current setup, the Analytics Engineering team does not own all the logic and does not know all the business rules that are being implemented and used across the departments. Currently, the analytics in the company is working and growing in silos, with the logic that once lived only with Data Engineers now living with Analytics Engineers, which are equally distant from the business. Additionally, with access to the intermediate and staging models, other analysts (like me) would be able to reutilise the logic and know what's available in the source models (even if sensitive information is not directly visible), which would make the process much easier.
-
-My second suggestion would be to start using tests to validate data coming from the source, to increase the data reliability across all departments. Now, we face many questions from stakeholders that diminish the trust in data just because problems happen in the process, generating weird/wrong data, and we are not able to spot it timely.
