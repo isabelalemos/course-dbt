@@ -8,17 +8,19 @@ models:
         description: "Date in which events took place"
         tests:
           - not_null
-      - name: total_pageviews
-        description: "Total count of times a product had a pageview on a specific date"
-      - name: total_add_to_cart
-        description: "Total count of times a product was added to cart on a specific date"
-      - name: total_sessions_with_pageviews
+      - name: total_sessions
+        description: "Total count of sessions on a specific date"
+      - name: total_sessions_with_page_view
         description: "Total count of sessions in which a product had a pageview on a specific date"
       - name: total_sessions_with_add_to_cart
         description: "Total count of sessions in which a product was added to cart on a specific date"
       - name: total_sessions_with_checkout
-        description: "Total count of sessions in which a checkout happened"
-      - name: total_users_with_pageviews
+        description: "Total count of sessions in which a checkout happened on a specific date"
+      - name: total_users
+        description: "Total count of users with any event on a specific date"
+      - name: total_users_with_page_view
         description: "Total count of users who had a product pageview on a specific date"
-      - name: total_users_with_pageviews
+      - name: total_users_with_add_to_cart
         description: "Total count of users who had a product added to cart on a specific date"
+      - name: total_users_with_checkout
+        description: "Total count of users that had a checkou event on a specific date"

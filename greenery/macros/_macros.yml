@@ -3,4 +3,7 @@ version: 2
 macros:
 
   - name: count_events_per_type
-    description: 'Macro to be used with events table that aggregates by counting number of events per event type'
+    description: "Macro to be used with events table that aggregates by counting number of events per event type"
+  
+  - name: count_sessions_per_event_type
+    description: "Macro to aggregate sessions by count based on the presence of distinct events"
